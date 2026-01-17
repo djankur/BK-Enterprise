@@ -1,0 +1,152 @@
+.service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-8);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    overflow: hidden;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid transparent;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card__icon-wrapper {
+    margin-bottom: var(--spacing-5);
+}
+
+.service-card__icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-500);
+    transition: all var(--transition-base);
+}
+
+.service-card__icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.service-card:hover .service-card__icon {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.service-card__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-900);
+    margin-bottom: var(--spacing-3);
+    transition: color var(--transition-fast);
+}
+
+.service-card:hover .service-card__title {
+    color: var(--color-primary-600);
+}
+
+.service-card__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-600);
+    line-height: var(--line-height-relaxed);
+    flex-grow: 1;
+}
+
+.service-card__arrow {
+    margin-top: var(--spacing-5);
+    width: 36px;
+    height: 36px;
+    background: var(--color-neutral-100);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-neutral-500);
+    transition: all var(--transition-base);
+}
+
+.service-card__arrow svg {
+    width: 18px;
+    height: 18px;
+}
+
+.service-card:hover .service-card__arrow {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    transform: translateX(5px);
+}
+
+/* Dark variant for hero sections */
+.service-card--dark {
+    background: var(--gradient-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card--dark .service-card__title {
+    color: var(--color-white);
+}
+
+.service-card--dark .service-card__description {
+    color: var(--color-neutral-400);
+}
+
+.service-card--dark:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+.service-card--dark:hover .service-card__title {
+    color: var(--color-primary-300);
+}
+
+.service-card--dark .service-card__icon {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--color-primary-300);
+}
+
+.service-card--dark .service-card__arrow {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-neutral-400);
+}
